@@ -4,7 +4,9 @@ Course: **KIE4031 Machine Learning**
 
 This repository contains a final summative assessment project that predicts the
 next-day closing price of Apple Inc. stock using an LSTM-based Recurrent Neural
-Network.
+Network. The notebook also tests whether adding OHLCV features, technical
+indicators, and a return-based prediction target improves accuracy compared with
+a close-only price-target LSTM baseline.
 
 ## Dataset
 
@@ -15,12 +17,15 @@ Network.
 
 ## Models
 
-- Main model: **LSTM Recurrent Neural Network**
-- Alternative model: **Random Forest Regressor**
+- Baseline model: **Close-only price-target LSTM Recurrent Neural Network**
+- Improved model: **Enhanced return-target LSTM with OHLCV features and technical indicators**
+- Alternative model: **Random Forest return model**
 
-The LSTM model uses a 60-day historical closing-price window to predict the next
-day's closing price. The Random Forest model uses the same 60-day window flattened
-into traditional machine learning features.
+The enhanced LSTM model uses a 60-day historical window with Open, High, Low,
+Close, Volume, returns, moving averages, RSI, MACD, Bollinger Bands, and rolling
+volatility. It predicts next-day return and reconstructs the next-day closing
+price. The Random Forest model uses the same enhanced 60-day window and return
+target flattened into traditional machine learning features.
 
 ## How To Run
 
@@ -65,12 +70,14 @@ The notebook displays:
 - Apple closing price trend graph
 - Apple volume graph
 - 50-day and 200-day moving average graph
-- Training and validation loss graph
-- LSTM actual vs predicted price graph
+- Technical-indicator feature table
+- Close-only price LSTM vs enhanced return LSTM validation loss graph
+- Close-only price LSTM vs enhanced return LSTM metric table
+- Actual vs predicted price graph
 - Prediction error graph
 - Sample prediction table
-- LSTM vs Random Forest comparison table
-- Actual price, LSTM prediction, and Random Forest prediction comparison graph
+- Close-only price LSTM vs enhanced return LSTM vs Random Forest comparison table
+- Actual price, enhanced return LSTM prediction, and Random Forest prediction comparison graph
 - Critical analysis and conclusion
 
 ## Notes
