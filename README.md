@@ -27,6 +27,10 @@ volatility. It predicts next-day return and reconstructs the next-day closing
 price. The Random Forest model uses the same enhanced 60-day window and return
 target flattened into traditional machine learning features.
 
+The notebook also includes a naive previous-close baseline. This is important
+because stock prices are highly autocorrelated, so price-level graphs and high
+R2 scores can look stronger than the model's real forecasting value.
+
 ## How To Run
 
 1. Clone the repository:
@@ -72,17 +76,20 @@ The notebook displays:
 - 50-day and 200-day moving average graph
 - Technical-indicator feature table
 - Close-only price LSTM vs enhanced return LSTM validation loss graph
-- Close-only price LSTM vs enhanced return LSTM metric table
+- Naive previous-close vs close-only LSTM vs enhanced return LSTM metric table
+- Return-level MAE, RMSE, and directional accuracy table
 - Actual vs predicted price graph
 - Prediction error graph
 - Sample prediction table
-- Close-only price LSTM vs enhanced return LSTM vs Random Forest comparison table
+- Naive baseline vs close-only LSTM vs enhanced return LSTM vs Random Forest comparison table
 - Actual price, enhanced return LSTM prediction, and Random Forest prediction comparison graph
 - Critical analysis and conclusion
 
 ## Notes
 
 The notebook uses chronological train-test splitting and does not shuffle the
-time-series data. The `MinMaxScaler` is fitted only on the training closing-price
-data to avoid data leakage. This project is an educational forecasting study and
+time-series data. The `MinMaxScaler` objects are fitted only on the training
+period to avoid data leakage. The included baseline and return-level metrics are
+used to reduce overclaiming and to check whether the models add value beyond
+simple price persistence. This project is an educational forecasting study and
 should not be treated as a real trading system.
