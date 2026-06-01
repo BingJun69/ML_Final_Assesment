@@ -1,22 +1,17 @@
-# Stock Price Prediction Using an LSTM-Based Recurrent Neural Network
+# Apple Stock Price Prediction Using an LSTM-Based Recurrent Neural Network
 
 Course: **KIE4031 Machine Learning**
 
 This repository contains a final summative assessment project that predicts the
-next-day closing price of NVIDIA Corporation (NVDA) stock using an LSTM-based
-Recurrent Neural Network.
+next-day closing price of Apple Inc. stock using an LSTM-based Recurrent Neural
+Network.
 
 ## Dataset
 
-The dataset is collected from **Yahoo Finance** using the `yfinance` Python
-library.
-
-- Ticker: `NVDA`
+- Dataset source: **Yahoo Finance** using `yfinance`
+- Stock ticker: `AAPL`
 - Date range: `2015-01-01` to `2025-12-31`
-- Saved dataset: `NVDA_stock_data.csv`
-
-The notebook downloads fresh data when available and can reuse the local CSV file
-if Yahoo Finance is temporarily unavailable.
+- Saved dataset: `AAPL_stock_data.csv`
 
 ## Models
 
@@ -24,26 +19,33 @@ if Yahoo Finance is temporarily unavailable.
 - Alternative model: **Random Forest Regressor**
 
 The LSTM model uses a 60-day historical closing-price window to predict the next
-day's closing price. The Random Forest model uses the same 60-day window, flattened
-into traditional machine learning features, for comparison.
+day's closing price. The Random Forest model uses the same 60-day window flattened
+into traditional machine learning features.
 
-## Main Notebook
+## How To Run
 
-Run this notebook from top to bottom:
+1. Clone the repository:
 
-```text
-stock_price_lstm_nvda.ipynb
+```bash
+git clone https://github.com/BingJun69/ML_Final_Assesment.git
+cd ML_Final_Assesment
 ```
 
-## Required Libraries
-
-Install the required packages with:
+2. Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Required libraries:
+3. Open the notebook:
+
+```text
+stock_price_lstm_aapl.ipynb
+```
+
+4. Run all cells from top to bottom.
+
+## Required Libraries
 
 - `numpy`
 - `pandas`
@@ -53,26 +55,27 @@ Required libraries:
 - `yfinance`
 - `jupyter`
 
-## Expected Outputs and Graphs
+## Expected Outputs
 
-The notebook produces:
+The notebook displays:
 
-- Downloaded NVDA stock dataset
+- Dataset preview using head and tail tables
+- Dataset shape, column names, and descriptive statistics
 - Missing-value and duplicate-row checks
-- Original closing-price trend graph
-- LSTM training and validation loss graph
-- Actual vs LSTM predicted closing-price graph
-- LSTM prediction error over time graph
-- Sample prediction table with absolute and percentage error
-- Random Forest comparison metrics table
-- Actual vs predicted graph comparing LSTM and Random Forest
-- Critical analysis and final conclusion
-
-The notebook also saves selected graphs to the `outputs/` folder when run.
+- Apple closing price trend graph
+- Apple volume graph
+- 50-day and 200-day moving average graph
+- Training and validation loss graph
+- LSTM actual vs predicted price graph
+- Prediction error graph
+- Sample prediction table
+- LSTM vs Random Forest comparison table
+- Actual price, LSTM prediction, and Random Forest prediction comparison graph
+- Critical analysis and conclusion
 
 ## Notes
 
-The time-series data is split chronologically and is not shuffled. The
-`MinMaxScaler` is fitted only on the training-period data to avoid future data
-leakage. TensorFlow may show a warning on native Windows that GPU support is not
-available; the notebook still runs correctly on CPU.
+The notebook uses chronological train-test splitting and does not shuffle the
+time-series data. The `MinMaxScaler` is fitted only on the training closing-price
+data to avoid data leakage. This project is an educational forecasting study and
+should not be treated as a real trading system.
