@@ -124,4 +124,4 @@ justified.
 
 Place your GitHub repository link here after uploading the project:
 
-`https://github.com/<your-username>/<your-repository>`
+`https://github.com/BingJun69/ML_Final_Assesment.git`
