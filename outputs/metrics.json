@@ -1,0 +1,31 @@
+{
+  "data_period": {
+    "start": "2021-01-01",
+    "end_exclusive": "2026-05-01"
+  },
+  "lookback_days": 60,
+  "features": [
+    "Open",
+    "High",
+    "Low",
+    "Close",
+    "Volume",
+    "Return",
+    "MA_10",
+    "MA_20"
+  ],
+  "lstm": {
+    "RMSE": 4.007806066590628,
+    "MAE": 3.1149255948404804,
+    "MAPE_percent": 1.6877937465497996,
+    "R2": 0.7983672742614909,
+    "Directional_Accuracy_percent": 48.223350253807105
+  },
+  "random_forest_baseline": {
+    "RMSE": 18.349188514936444,
+    "MAE": 16.069798098365855,
+    "MAPE_percent": 8.535729751762783,
+    "R2": -3.2265046341390295,
+    "Directional_Accuracy_percent": 41.11675126903553
+  }
+}

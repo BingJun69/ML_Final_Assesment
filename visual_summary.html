@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NVDA LSTM Visual Summary</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f6f7f9;
+      color: #1f2933;
+    }
+    header {
+      padding: 28px 40px 16px;
+      background: #ffffff;
+      border-bottom: 1px solid #d8dee8;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      letter-spacing: 0;
+    }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      padding: 18px 40px;
+      background: #ffffff;
+      border-bottom: 1px solid #d8dee8;
+    }
+    .metric {
+      padding: 12px 14px;
+      border: 1px solid #d8dee8;
+      border-radius: 8px;
+      background: #fbfcfe;
+    }
+    .metric strong {
+      display: block;
+      font-size: 13px;
+      color: #52606d;
+      margin-bottom: 5px;
+    }
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 18px;
+      padding: 24px 40px 40px;
+    }
+    .panel {
+      background: #ffffff;
+      border: 1px solid #d8dee8;
+      border-radius: 8px;
+      padding: 14px;
+    }
+    h2 {
+      margin: 0 0 10px;
+      font-size: 16px;
+      letter-spacing: 0;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid #edf0f5;
+      border-radius: 6px;
+      background: #ffffff;
+    }
+    @media (max-width: 640px) {
+      header, .metrics, main {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+      main {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>NVDA LSTM Stock Prediction Visual Summary</h1>
+    <p>Visual guide for the assessment: data, preprocessing, model behavior, comparison, and errors.</p>
+  </header>
+  <div class="metrics">
+    <div class="metric"><strong>LSTM RMSE</strong>4.0078</div>
+    <div class="metric"><strong>LSTM MAPE</strong>1.6878%</div>
+    <div class="metric"><strong>LSTM R2</strong>0.7984</div>
+    <div class="metric"><strong>Baseline RMSE</strong>18.3492</div>
+  </div>
+  <main>
+    
+        <section class="panel">
+          <h2>Raw price movement and 20-day trend</h2>
+          <img src="outputs/01_price_history.png" alt="Raw price movement and 20-day trend">
+        </section>
+        
+
+        <section class="panel">
+          <h2>How the data is split without shuffling</h2>
+          <img src="outputs/05_train_validation_test_split.png" alt="How the data is split without shuffling">
+        </section>
+        
+
+        <section class="panel">
+          <h2>How the engineered features relate to each other</h2>
+          <img src="outputs/06_feature_correlation_heatmap.png" alt="How the engineered features relate to each other">
+        </section>
+        
+
+        <section class="panel">
+          <h2>The complete machine-learning workflow</h2>
+          <img src="outputs/10_workflow_diagram.png" alt="The complete machine-learning workflow">
+        </section>
+        
+
+        <section class="panel">
+          <h2>Whether the LSTM is learning or overfitting</h2>
+          <img src="outputs/02_lstm_training_loss.png" alt="Whether the LSTM is learning or overfitting">
+        </section>
+        
+
+        <section class="panel">
+          <h2>Actual close price against model predictions</h2>
+          <img src="outputs/03_actual_vs_predicted.png" alt="Actual close price against model predictions">
+        </section>
+        
+
+        <section class="panel">
+          <h2>LSTM compared with the Random Forest baseline</h2>
+          <img src="outputs/07_model_error_comparison.png" alt="LSTM compared with the Random Forest baseline">
+        </section>
+        
+
+        <section class="panel">
+          <h2>Where prediction errors are largest</h2>
+          <img src="outputs/08_lstm_absolute_error_over_time.png" alt="Where prediction errors are largest">
+        </section>
+        
+
+        <section class="panel">
+          <h2>Prediction residual pattern</h2>
+          <img src="outputs/04_lstm_residuals.png" alt="Prediction residual pattern">
+        </section>
+        
+
+        <section class="panel">
+          <h2>Daily return volatility in the dataset</h2>
+          <img src="outputs/09_daily_return_distribution.png" alt="Daily return volatility in the dataset">
+        </section>
+        
+  </main>
+</body>
+</html>
